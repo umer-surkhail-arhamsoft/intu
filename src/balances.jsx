@@ -8,11 +8,10 @@ export default function Balances() {
 
   useEffect(() => {
     const contract = async() => {
-       let web3Provider = new ethers.BrowserProvider(window.ethereum)
-       const signer = await web3Provider.getSigner();
+      const provider = new ethers.providers.Web3Provider(window.ethereum) 
+      const signer = provider.getSigner();
 
-  
-       const INTUContract = await new ethers.Contract(INTU_ADDRESS, abiData, signer)
+      const INTUContract = await new ethers.Contract(INTU_ADDRESS, abiData, signer)
 
 
       // Vault Creation
